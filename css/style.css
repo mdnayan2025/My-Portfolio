@@ -171,15 +171,18 @@
 /* Responsive */
 @media (max-width: 850px) {
   .main-navigation__ul {
-    display: none; /* hide menu on mobile */
+    display: none; /* hidden by default on mobile */
     flex-direction: column;
-    background-color: rgba(0,0,0,0.9);
+    background-color: rgba(0,0,0,0.95);
     position: absolute;
     top: 60px;
-    right: 0;
-    width: 200px;
+    left: 50%;                 /* center the menu */
+    transform: translateX(-50%);
+    width: calc(100% - 40px);  /* stay nicely inside container padding */
+    max-width: 360px;          /* prevent it growing too wide */
     padding: 20px;
     border-radius: 8px;
+    z-index: 1001;
   }
 
   .main-navigation__ul.show {
@@ -190,6 +193,7 @@
     display: flex; /* show burger on mobile */
   }
 }
+
 
 
   
