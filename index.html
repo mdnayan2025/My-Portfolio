@@ -16,14 +16,12 @@
 	<!-- Navigation -->
 <nav class="site-navigation">
   <div class="site-navigation-inner site-container">
-    
-    <!-- Logo or site name if needed -->
+
     <div class="logo">
-      <a href="#">MyPortfolio</a>
+      <a href="#home">MyPortfolio</a>
     </div>
 
-    <!-- Desktop Navigation -->
-    <ul class="main-navigation__ul">
+    <ul class="main-navigation__ul" id="mainNav">
       <li><a href="#home">Home</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#resume">Resume</a></li>
@@ -33,14 +31,15 @@
     </ul>
 
     <!-- Mobile Burger Menu -->
-    <div id="burger" class="burger-container" onclick="toggleMenu(this)">
-      <div class="bar1"></div>
-      <div class="bar2"></div>
-      <div class="bar3"></div>
-    </div>
+    <button id="burger" class="burger-container" aria-expanded="false" aria-controls="mainNav" type="button">
+      <span class="bar1"></span>
+      <span class="bar2"></span>
+      <span class="bar3"></span>
+    </button>
 
   </div>
 </nav>
+<!-- Navigation end -->
 
 
 	<!-- Top banner -->
