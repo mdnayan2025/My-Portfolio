@@ -1,21 +1,22 @@
 $(document).ready(function () {
-  /* Navigation burger onclick side navigation show */
-  $(".burger-container").on("click", function () {
-    $(this).toggleClass("change"); // animate burger
-    $(".main-navigation__ul").toggleClass("show"); // toggle the UL menu
+  // Burger toggle
+  $("#burger").on("click", function () {
+    var $burger = $(this);
+    var $menu = $(".main-navigation__ul");
 
-    if ($(this).hasClass("change")) {
+    $burger.toggleClass("change");
+    $menu.toggleClass("show");
+
+    // Accessibility
+    var expanded = $burger.hasClass("change");
+    $burger.attr("aria-expanded", expanded ? "true" : "false");
+
+    // block scroll when menu open (optional)
+    if (expanded) {
       $("body").addClass("stop-scroll");
     } else {
       $("body").removeClass("stop-scroll");
     }
-  });
-
-  /* Auto-close mobile menu on link click */
-  $(".main-navigation__ul li a").on("click", function () {
-    $(".main-navigation__ul").removeClass("show");
-    $(".burger-container").removeClass("change");
-    $("body").removeClass("stop-scroll");
   });
 
   /* About me slider */
