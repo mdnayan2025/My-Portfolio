@@ -1,9 +1,8 @@
-$(document).ready(function() {
-	
-   /* Navigation burger onclick side navigation show */
+$(document).ready(function () {
+  /* Navigation burger onclick side navigation show */
   $(".burger-container").on("click", function () {
     $(this).toggleClass("change"); // animate burger
-    $(".main-navigation__ul").toggleClass("show"); // show/hide nav links
+    $(".main-navigation__ul").toggleClass("show"); // toggle the UL menu
 
     if ($(this).hasClass("change")) {
       $("body").addClass("stop-scroll");
@@ -14,10 +13,33 @@ $(document).ready(function() {
 
   /* Auto-close mobile menu on link click */
   $(".main-navigation__ul li a").on("click", function () {
-    $(".main-navigation__ul").removeClass("show"); // hide nav
-    $(".burger-container").removeClass("change"); // reset burger
-    $("body").removeClass("stop-scroll"); // allow scrolling again
+    $(".main-navigation__ul").removeClass("show");
+    $(".burger-container").removeClass("change");
+    $("body").removeClass("stop-scroll");
   });
+
+  /* About me slider */
+  $(".about-me-slider").slick({
+    slidesToShow: 1,
+    prevArrow: '<span class="span-arrow slick-prev"><</span>',
+    nextArrow: '<span class="span-arrow slick-next">></span>',
+  });
+
+  /* Blog slider */
+  $(".blog-slider").slick({
+    slidesToShow: 2,
+    prevArrow: '<span class="span-arrow slick-prev"><</span>',
+    nextArrow: '<span class="span-arrow slick-next">></span>',
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
+  });
+});
 
 	/* About me slider */
 	$('.about-me-slider').slick({
