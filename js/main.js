@@ -1,16 +1,22 @@
 $(document).ready(function() {
 	
-  /* Navigation burger onclick side navigation show */
+   /* Navigation burger onclick side navigation show */
   $(".burger-container").on("click", function () {
     $(this).toggleClass("change"); // animate burger
-
     $(".main-navigation__ul").toggleClass("show"); // show/hide nav links
 
     if ($(this).hasClass("change")) {
-      $("body").addClass("stop-scroll"); // optional: lock scroll when menu open
+      $("body").addClass("stop-scroll");
     } else {
       $("body").removeClass("stop-scroll");
     }
+  });
+
+  /* Auto-close mobile menu on link click */
+  $(".main-navigation__ul li a").on("click", function () {
+    $(".main-navigation__ul").removeClass("show"); // hide nav
+    $(".burger-container").removeClass("change"); // reset burger
+    $("body").removeClass("stop-scroll"); // allow scrolling again
   });
 
 	/* About me slider */
