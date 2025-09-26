@@ -1,5 +1,4 @@
 
-
 :root {
   --heading-color: #222;
   --accent-color: #c18f59; 
@@ -175,16 +174,16 @@
     flex-direction: column;
     position: absolute;
     top: 60px;
-    right: 20px;
-    width: 200px;
-    background-color: rgba(0,0,0,0.9);
-    padding: 20px;
+    right: 0;                /* full alignment to the right */
+    width: 220px;            /* slightly wider so links fit */
+    background-color: rgba(0,0,0,0.95);
+    padding: 15px;
     border-radius: 8px;
     z-index: 1001;
   }
 
   .main-navigation__ul.show {
-    display: flex;           /* visible when burger clicked */
+    display: flex;           /* show when burger clicked */
   }
 
   .burger-container {
@@ -192,12 +191,10 @@
     flex-direction: column;
     gap: 5px;
     cursor: pointer;
+    z-index: 1002;           /* above menu */
   }
 }
 
-
-
-  
 
 /* Navigation burger end */
 .fh5co-top-banner {
