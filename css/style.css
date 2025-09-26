@@ -97,7 +97,7 @@
     .main-navigation {
       opacity: 0.94; } }
 
-/* Navigation burger */
+
 /* Navbar container */
 .site-navigation {
   position: fixed;
@@ -124,7 +124,7 @@
 
 /* Navigation menu */
 .main-navigation__ul {
-  display: flex;
+  display: flex; 
   gap: 25px;
   list-style: none;
   margin: 0;
@@ -171,26 +171,27 @@
 /* Responsive */
 @media (max-width: 850px) {
   .main-navigation__ul {
-    display: none; /* hidden by default on mobile */
+    display: none;           /* hidden by default */
     flex-direction: column;
-    background-color: rgba(0,0,0,0.95);
     position: absolute;
     top: 60px;
-    left: 50%;                 /* center the menu */
-    transform: translateX(-50%);
-    width: calc(100% - 40px);  /* stay nicely inside container padding */
-    max-width: 360px;          /* prevent it growing too wide */
+    right: 20px;
+    width: 200px;
+    background-color: rgba(0,0,0,0.9);
     padding: 20px;
     border-radius: 8px;
     z-index: 1001;
   }
 
   .main-navigation__ul.show {
-    display: flex;
+    display: flex;           /* visible when burger clicked */
   }
 
   .burger-container {
-    display: flex; /* show burger on mobile */
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
   }
 }
 
@@ -788,12 +789,13 @@
   gap: 20px; /* spacing between columns */
 }
 
-/* ---------- EDIT HERE: adjust for 5 columns ---------- */
+/* Desktop (unchanged) */
 .single-count {
-  width: 18%; /* instead of 23% for 4 columns */
+  width: 18%; /* keep 5 per row */
   text-align: center;
-  color: #fff;
+  color: #faf9f9;
 }
+
 /* ------------------------------------------------------ */
 
 .single-count span {
@@ -811,34 +813,63 @@
   margin-left: 5px;
 }
 
-/* Responsive for tablets */
 @media (max-width: 850px) {
-  .single-count {
-    width: 45%; /* 2 per row */
-    margin-bottom: 30px;
+  .counter-inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
   }
-  .single-count .count {
+
+  .single-count {
+    flex: 1 1 45%;       /* 2 per row */
+    max-width: 45%;
+    margin-bottom: 30px;
+    box-sizing: border-box; /* ensures padding/margin doesn't break layout */
+    text-align: center;
+  }
+
+  .single-count span {
+    display: block;
+    margin: 0 auto 15px auto; /* center number and reduce side margin */
     font-size: 35px;
-    margin-bottom: 15px;
+    font-weight: 900;
+    word-wrap: break-word;     /* allows text to wrap if needed */
+  }
+
+  .single-count p {
+    font-size: 16px;
+    margin: 0 auto;
+    word-wrap: break-word;
   }
 }
 
-/* Responsive for small screens */
+/* Mobile: 1 per row, full width */
 @media (max-width: 500px) {
+  .counter-inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+
   .single-count {
-    width: 100%; /* stack vertically */
+    flex: 1 1 100%;
+    max-width: 100%;
     padding-bottom: 10px;
     border-bottom: 1px solid #fff;
+    box-sizing: border-box;
+    text-align: center;
   }
-}
 
-.single-count__text {
-  display: flex;
-  justify-content: center;
-}
+  .single-count span {
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
 
-.single-count__text img {
-  margin-right: 20px;
+  .single-count p {
+    font-size: 14px;
+  }
 }
 
 
