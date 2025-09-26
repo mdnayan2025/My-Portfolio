@@ -1,17 +1,17 @@
 $(document).ready(function() {
-
 	
-	/* Navigation burger onclick side navigation show */
-	$('.burger-container').on('click', function() {
-		$('.main-navigation').toggle('slow');
+  /* Navigation burger onclick side navigation show */
+  $(".burger-container").on("click", function () {
+    $(this).toggleClass("change"); // animate burger
 
-		if($('#myBtn').hasClass('change')) {
-			$('body').addClass('stop-scroll');
-		} else {
-			$('body').removeClass('stop-scroll');
-		}
-	});
+    $(".main-navigation__ul").toggleClass("show"); // show/hide nav links
 
+    if ($(this).hasClass("change")) {
+      $("body").addClass("stop-scroll"); // optional: lock scroll when menu open
+    } else {
+      $("body").removeClass("stop-scroll");
+    }
+  });
 
 	/* About me slider */
 	$('.about-me-slider').slick({
