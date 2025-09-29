@@ -161,31 +161,20 @@
 /* Responsive */
 @media (max-width: 850px) {
   .main-navigation__ul {
-    display: none;
+    display: none !important;
     flex-direction: column;
-    position: absolute;
-    top: 100%; /* Changed from 60px to be relative to navbar */
-    right: 0;
-    width: 220px;
-    background-color: rgba(0,0,0,0.95);
+    position: fixed;
+    top: 80px;
+    right: 15px;
+    width: 200px;
+    background: #000;
     padding: 20px;
-    border-radius: 8px;
+    border-radius: 5px;
     z-index: 1001;
-    gap: 15px;
   }
 
   .main-navigation__ul.show {
-    display: flex;
-  }
-
-  .main-navigation__ul li {
-    margin-bottom: 10px;
-  }
-
-  .main-navigation__ul li a {
-    font-size: 18px;
-    display: block;
-    padding: 8px 0;
+    display: flex !important;
   }
 
   .burger-container {
