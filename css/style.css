@@ -1,4 +1,5 @@
 
+
 :root {
   --heading-color: #222;
   --accent-color: #c18f59; 
@@ -62,47 +63,30 @@
   justify-content: space-between; }
 
 .main-navigation {
-  color: #fff;
-  display: none;
-  position: fixed;
-  height: 100%;
-  width: 100%;
-  top: 0px;
-  left: 0px;
-  background: #000;
-  opacity: 0.9; }
-  .main-navigation .main-navigation__ul {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 3%;
-    border: 2px solid #fff;
-    border-radius: 7px;
-    background-color: #c18f59; }
-    .main-navigation .main-navigation__ul li {
-      margin-bottom: 20px;
-      list-style: none; }
-    .main-navigation .main-navigation__ul a {
-      color: #fff;
-      font-size: 20px;
-      font-weight: 600;
-      text-decoration: none;
-      text-transform: uppercase;
-      transition: 0.3s ease; }
-      .main-navigation .main-navigation__ul a:hover {
-        color: #777; }
-  @media (max-width: 1150px) {
-    .main-navigation {
-      opacity: 0.94; } }
+  display: block; /* keep it as container */
+  position: relative; /* don't hide it anymore */
+  height: auto;
+  width: auto;
+  top: auto;
+  left: auto;
+  background: transparent;
+  opacity: 1;
+}
 
-
-/* Navbar container */
+.main-navigation .main-navigation__ul {
+  position: static;
+  transform: none;
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
+  padding: 0;
+}
+    /* Navbar container */
 .site-navigation {
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(0,0,0,0.5); /* semi-transparent over cover image */
+  background: rgba(0,0,0,0.5);
   z-index: 1000;
 }
 
@@ -130,10 +114,17 @@
   padding: 0;
 }
 
+.main-navigation__ul li {
+  margin-bottom: 0; /* Reset the margin from your original CSS */
+  list-style: none;
+}
+
 .main-navigation__ul li a {
   color: #c18f59;
   text-decoration: none;
   font-weight: 600;
+  font-size: 16px; /* Adjusted from 20px for better mobile view */
+  text-transform: uppercase;
   transition: color 0.3s;
 }
 
@@ -143,7 +134,7 @@
 
 /* Burger menu (mobile) */
 .burger-container {
-  display: none; /* hidden on desktop */
+  display: none;
   cursor: pointer;
   flex-direction: column;
   gap: 5px;
@@ -170,33 +161,37 @@
 /* Responsive */
 @media (max-width: 850px) {
   .main-navigation__ul {
-    display: none;           /* hidden by default */
+    display: none;
     flex-direction: column;
     position: absolute;
-    top: 60px;
-    right: 0;                /* full alignment to the right */
-    width: 220px;            /* slightly wider so links fit */
+    top: 100%; /* Changed from 60px to be relative to navbar */
+    right: 0;
+    width: 220px;
     background-color: rgba(0,0,0,0.95);
-    padding: 15px;
+    padding: 20px;
     border-radius: 8px;
     z-index: 1001;
+    gap: 15px;
   }
 
   .main-navigation__ul.show {
-    display: flex;           /* show when burger clicked */
+    display: flex;
+  }
+
+  .main-navigation__ul li {
+    margin-bottom: 10px;
+  }
+
+  .main-navigation__ul li a {
+    font-size: 18px;
+    display: block;
+    padding: 8px 0;
   }
 
   .burger-container {
     display: flex;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-    z-index: 1002;           /* above menu */
   }
 }
-
-
-/* Navigation burger end */
 .fh5co-top-banner {
   position: relative;
   display: flex;
@@ -378,6 +373,7 @@
     color: #fff;
     border-color: #fff; }
 
+        
 /* Make the blog/projects section show one project per scroll */
 .fh5co-blog .blog-slider {
   display: flex;
